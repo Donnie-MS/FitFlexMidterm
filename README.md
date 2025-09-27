@@ -1,0 +1,74 @@
+# Parcial de Objetos II
+
+## Consideraciones Iniciales
+
+- El código entregado debe compilar obligatoriamente. Un parcial entregado cuyo código no compila queda desaprobado automáticamente.
+
+- Se realizará un control exhaustivo, incluyendo distintas herramientas de análisis estático de código para identificar posibles copias entre las soluciones entregadas.
+
+- La solución debe aplicar patrones de diseño apropiados para la problemática planteada.
+
+- El código entregado debe tener los test suficientes que garantice el correcto funcionamiento de la solucion que propone el alumno
+
+- No se aceptan entregas fuera de plazo ni que no estén correctamente subidas al repositorio del classroom de la materia
+
+# 🏋️ FitFlex
+
+📘 **Contexto**  
+Se nos encomienda desarrollar el módulo de **sugerencia de entrenamientos** de la nueva aplicación de fitness **FitFlex**. La idea principal es agregar una funcionalidad que permita sugerir entrenamientos de la plataforma a los usuarios registrados que ya tienen un **perfil fitness** definido.
+
+---
+
+## 🧠 Perfil Fitness
+
+Cada usuario registrado debe tener asociado un **perfil fitness**, que puede cambiar cuando lo desee. Actualmente existen los siguientes perfiles (y podrían agregarse más en el futuro):
+
+- 🏃 **Tipo de entrenamiento**: El usuario define qué tipos de entrenamiento acepta en las sugerencias. Puede elegir más de uno (por ejemplo: Cardio, Yoga y Fuerza).
+- 🆕 **Nivel Moderno**: Define a partir de qué año acepta entrenamientos. Por ejemplo, si configura 2023, solo recibirá entrenamientos creados desde ese año en adelante.
+- 🎧 **Con Audio en su idioma**: Solo recibe sugerencias de entrenamientos que estén narrados en su idioma preferido.
+- 🔀 **Mixto**: Puede combinar más de un perfil y acepta sugerencias si se cumple **al menos una** de las condiciones configuradas.
+
+---
+
+## 🏋️ Entrenamientos
+
+Cada entrenamiento registrado en la plataforma cuenta con la siguiente información:
+
+- 📛 **Nombre**
+- 📅 **Año de creación**
+- 🧬 **Tipo de entrenamiento**
+- 🗣️ **Idioma original del instructor**
+- 🎧 **Audios disponibles**: Lista de idiomas disponibles (por ejemplo: ['español', 'portugués'])
+
+Un entrenamiento se considera **narrado en el idioma original** si tiene audio en el mismo idioma del instructor.  
+Pueden existir entrenamientos sin audios adicionales o en idiomas distintos al original.  
+Por ejemplo, un entrenamiento con idioma original Japonés y audios solo en ['español', 'inglés'] no está narrado en su idioma original.
+
+---
+
+## 👤 Usuarios
+
+Los usuarios tienen los siguientes atributos:
+
+- 📧 **Mail**
+- 🏋️ **Perfil fitness** (puede cambiarlo)
+- 📋 **Lista de sugerencias recibidas**
+- 👀 **Lista de entrenamientos realizados**
+- 🌍 **Idioma definido**
+
+Además, pueden **tomar un entrenamiento al azar** de su lista de sugerencias.
+
+---
+
+## 💻 La Plataforma
+
+La plataforma mantiene el registro de todos los usuarios y entrenamientos. En cualquier momento se pueden:
+
+- ➕ Agregar o ➖ quitar **entrenamientos**
+- ➕ Agregar o ➖ quitar **usuarios**
+
+Además la plataforma debe tener la funcionalidad de realizar un proceso de **sugerencia** que consiste en evaluar cada entrenamiento contra el **perfil fitness** de cada usuario y sugerírselo solo si corresponde.
+
+## Test
+
+Realizar el Conjunto de Test que garanticen que la solución funciona y cuando mayor sea el grado de covertura mejor es.
