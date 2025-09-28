@@ -15,7 +15,7 @@
 # 🏋️ FitFlex
 
 📘 **Contexto**  
-Se nos encomienda desarrollar el módulo de **sugerencia de entrenamientos** de la nueva aplicación de fitness **FitFlex**. La idea principal es agregar una funcionalidad que permita sugerir entrenamientos de la plataforma a los usuarios registrados que ya tienen un **perfil fitness** definido.
+Se nos encomienda desarrollar el módulo de **sugerencia de entrenamientos** de la nueva aplicación de fitness **FitFlex**. La idea principal es agregar una funcionalidad que permita sugerir entrenamientos de la plataforma a los usuarios registrados que ya tienen un **perfil fitness** definido. Cada usuario de la plataforma debe contar con la funcionalidad de **aceptar o no la sugerencia de un entrenamiento** de acuerdo al **perfil fitness** que tenga definido.
 
 ---
 
@@ -23,9 +23,9 @@ Se nos encomienda desarrollar el módulo de **sugerencia de entrenamientos** de 
 
 Cada usuario registrado debe tener asociado un **perfil fitness**, que puede cambiar cuando lo desee. Actualmente existen los siguientes perfiles (y podrían agregarse más en el futuro):
 
-- 🏃 **Tipo de entrenamiento**: El usuario define qué tipos de entrenamiento acepta en las sugerencias. Puede elegir más de uno (por ejemplo: Cardio, Yoga y Fuerza).
+- 🏃 **Tipo de entrenamiento**: El usuario define qué tipos de entrenamiento acepta en las sugerencias. Puede elegir más de uno (por ejemplo: Cardio, Yoga, Caminata, Fuerza, Crossfit, Spinning, etc).
 - 🆕 **Nivel Moderno**: Define a partir de qué año acepta entrenamientos. Por ejemplo, si configura 2023, solo recibirá entrenamientos creados desde ese año en adelante.
-- 🎧 **Con Audio en su idioma**: Solo recibe sugerencias de entrenamientos que estén narrados en su idioma preferido.
+- 🎧 **Con Audio en el idioma Original**: Solo recibe sugerencias de entrenamientos que estén narrados en el idioma original del entrenamiento.
 - 🔀 **Mixto**: Puede combinar más de un perfil y acepta sugerencias si se cumple **al menos una** de las condiciones configuradas.
 
 ---
@@ -51,12 +51,11 @@ Por ejemplo, un entrenamiento con idioma original Japonés y audios solo en ['es
 Los usuarios tienen los siguientes atributos:
 
 - 📧 **Mail**
-- 🏋️ **Perfil fitness** (puede cambiarlo)
-- 📋 **Lista de sugerencias recibidas**
+- 🏋️ **Perfil fitness** . Por default es **Tipo de Entrenamiento** configurado solo con "Caminata", pero puede cambiarlo cuando lo desee.
+- 📋 **Lista de entrenamientos sugeridos**
 - 👀 **Lista de entrenamientos realizados**
-- 🌍 **Idioma definido**
 
-Además, pueden **tomar un entrenamiento al azar** de su lista de sugerencias.
+Además, de aceptar o no sugerencias de entranamiento, tambien pueden **tomar un entrenamiento al azar** de su lista de sugerencias aceptadas.
 
 ---
 
