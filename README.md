@@ -70,4 +70,22 @@ Además la plataforma debe tener la funcionalidad de realizar un proceso de **su
 
 ## Test
 
-Realizar el Conjunto de Test que garanticen que la solución funciona y cuando mayor sea el grado de covertura mejor es.
+Realizar el Conjunto de Test que garanticen que la solución funciona y cuando mayor sea el grado de covertura mejor es. A continuación te dejamos algunos nombres de ejemplos para los test de perfiles, usuario y plataforma.
+
+### Perfiles
+
+- **dado** Un Entrenamiento De Un Tipo _ **cuando** Se Evalua Perfil Por Un Tipo Aceptado _ **entonces** Es Aceptado
+- **dado** Un Entrenamiento De Un Tipo _ **cuando** Se Evalua Perfil Por Un Tipo NO Aceptado _ **entonces** NO Es Aceptado()
+- **dado** Un Entrenamiento Narrado En Su Idioma Origina l* **cuando** Se Evalua Con Perfil Audio Original * **entonces** Es Aceptado
+- **dado** Un Entrenamiento NO Narrado En SuIdioma Original _ **cuando** Se Evalua Con Perfil Audio Original _ **entonces** NO Es Aceptado
+
+### Usuario
+
+- **dado** Un Usuario _ **cuando** Agrega Entrenamiento A Sugeridos _ **entonces** Puede Realizarlo
+- **dado** Un Usuario Con Entrenamiento Sugerido _ **cuando** Lo Realiza _ **entonces** Se Agrega A Los Realizados
+- **dado** Un Usuario Con Perfil De Tipo _ **cuando** Recibe Entrenamiento Compatible _ **entonces** Lo Acepta
+
+### Plataforma
+
+- **dado** Un Usuario Y Un Entrenamiento Compatible _ **cuando** Se Ejecuta Sugerencia entrenamiento **entonces** Es Sugerido Al Usuario
+  -- **dado** Un Entrenamiento _ **cuando** Se Quita De La Plataforma \_ **entonces** Ya No Esta En La Lista De Entrenamientos
