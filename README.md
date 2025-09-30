@@ -53,9 +53,8 @@ Los usuarios tienen los siguientes atributos:
 - 📧 **Mail**
 - 🏋️ **Perfil fitness** . Por default es **Tipo de Entrenamiento** configurado solo con "Caminata", pero puede cambiarlo cuando lo desee.
 - 📋 **Lista de entrenamientos sugeridos**
-- 👀 **Lista de entrenamientos realizados**
 
-Además, de aceptar o no sugerencias de entranamiento, tambien pueden **tomar un entrenamiento al azar** de su lista de sugerencias aceptadas.
+Los usuarios pueden aceptar o no sugerencias de entranamiento. Y pueden agregar un entrenamiento a la lista de entrenamientos sugeridos. Estas dos operaciones deben ser independientes.
 
 ---
 
@@ -66,7 +65,7 @@ La plataforma mantiene el registro de todos los usuarios y entrenamientos. En cu
 - ➕ Agregar o ➖ quitar **entrenamientos**
 - ➕ Agregar o ➖ quitar **usuarios**
 
-Además la plataforma debe tener la funcionalidad de realizar un proceso de **sugerencia** que consiste en evaluar cada entrenamiento contra el **perfil fitness** de cada usuario y sugerírselo solo si corresponde.
+Además la plataforma debe tener la funcionalidad de realizar un proceso de **sugerencia** que consiste en evaluar cada entrenamiento contra el **perfil fitness** de cada usuario, y en el caso de que el usuario acepta la sugerencia de entrenamiento debe sumarlo a la lista de **entrenamientos sugeridos**.
 
 ## Test
 
@@ -81,11 +80,9 @@ Realizar el Conjunto de Test que garanticen que la solución funciona y cuando m
 
 ### Usuario
 
-- **dado** Un Usuario _ **cuando** Agrega Entrenamiento A Sugeridos _ **entonces** Puede Realizarlo
-- **dado** Un Usuario Con Entrenamiento Sugerido _ **cuando** Lo Realiza _ **entonces** Se Agrega A Los Realizados
-- **dado** Un Usuario Con Perfil De Tipo _ **cuando** Recibe Entrenamiento Compatible _ **entonces** Lo Acepta
+- **dado** Un Usuario Con Perfil De Tipo _ **cuando** Recibe Entrenamiento Compatible _ **entonces** Lo Acepta.
 
 ### Plataforma
 
-- **dado** Un Usuario Y Un Entrenamiento Compatible _ **cuando** Se Ejecuta Sugerencia entrenamiento **entonces** Es Sugerido Al Usuario
+- **dado** Un Usuario Y Un Entrenamiento Compatible _ **cuando** Se Ejecuta Sugerencia entrenamiento **entonces** Es Sugerido Al Usuario y lo acpeta.
   -- **dado** Un Entrenamiento _ **cuando** Se Quita De La Plataforma \_ **entonces** Ya No Esta En La Lista De Entrenamientos
