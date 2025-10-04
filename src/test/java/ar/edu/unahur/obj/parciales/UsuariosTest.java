@@ -1,8 +1,7 @@
 package ar.edu.unahur.obj.parciales;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -42,47 +41,6 @@ public class UsuariosTest {
 
         // Entonces
         assertFalse(aceptado);
-    }
-
-    @Test
-    public void dadoUnUsuario_cuandoAgregaEntrenamientoASugeridos_entoncesPuedeRealizarlo() {
-        // Dado
-        Usuario usuario = new Usuario();
-
-        Entrenamiento entrenamiento = new Entrenamiento(
-                "Entrenamiento Spinning", 2024, "Spinning", "inglés", List.of("inglés"));
-
-        // Cuando
-        usuario.agregarEntrenamientoSugerido(entrenamiento);
-
-        // Entonces
-        assertDoesNotThrow(() -> usuario.realizarEntrenamientoSugerido());
-    }
-
-    @Test
-    public void dadoUnUsuarioConEntrenamientoSugerido_cuandoLoRealiza_entoncesSeAgregaALosRealizados() {
-        // Dado
-        Usuario usuario = new Usuario();
-
-        Entrenamiento entrenamiento = new Entrenamiento(
-                "Entrenamiento Caminata", 2020, "Caminata", "español", List.of("español"));
-
-        usuario.agregarEntrenamientoSugerido(entrenamiento);
-
-        // Cuando
-        usuario.realizarEntrenamientoSugerido();
-
-        // Entonces
-        assertDoesNotThrow(() -> usuario.realizarEntrenamientoSugerido());
-    }
-
-    @Test
-    public void dadoUnUsuarioSinEntrenamientosSugeridos_cuandoIntentaRealizarUno_entoncesLanzaExcepcion() {
-        // Dado
-        Usuario usuario = new Usuario();
-
-        // Cuando / Entonces
-        assertThrows(RuntimeException.class, () -> usuario.realizarEntrenamientoSugerido());
     }
 
 }

@@ -10,7 +10,6 @@ import ar.edu.unahur.obj.parciales.perfiles.TipoEntrenamiento;
 public class Usuario {
     private String email;
     private Set<Entrenamiento> entrenamientoSugerido = new HashSet<>();
-    private Set<Entrenamiento> entrenamientoRealizado = new HashSet<>();
     private PerfilStrategy perfil = new TipoEntrenamiento(List.of("Caminata"));
 
     public String getEmail() {
@@ -27,11 +26,6 @@ public class Usuario {
 
     public void agregarEntrenamientoSugerido(Entrenamiento entrenamiento) {
         entrenamientoSugerido.add(entrenamiento);
-    }
-
-    public void realizarEntrenamientoSugerido() {
-        entrenamientoRealizado.add(
-                entrenamientoSugerido.stream().findAny().orElseThrow());
     }
 
 }

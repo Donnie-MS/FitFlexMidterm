@@ -1,15 +1,12 @@
 package ar.edu.unahur.obj.parciales;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-
-import ar.edu.unahur.obj.parciales.perfiles.TipoEntrenamiento;
 
 public class PlataformaTest {
 
@@ -71,43 +68,4 @@ public class PlataformaTest {
         assertFalse(plataforma.getUsuarios().contains(usuario));
     }
 
-    @Test
-    public void dadoUnUsuarioYUnEntrenamientoCompatible_cuandoSeEjecutaSugerencia_entrenamientoEsSugeridoAlUsuario() {
-        // Dado
-        Plataforma plataforma = new Plataforma();
-        Usuario usuario = new Usuario();
-        usuario.setPerfil(new TipoEntrenamiento(List.of("Spinning")));
-
-        Entrenamiento entrenamiento = new Entrenamiento(
-                "Spinning Pro", 2024, "Spinning", "español", List.of("español"));
-
-        plataforma.agregarUsuario(usuario);
-        plataforma.agregarEntrenamiento(entrenamiento);
-
-        // Cuando
-        plataforma.sugerencia();
-
-        // Entonces
-        assertDoesNotThrow(() -> usuario.realizarEntrenamientoSugerido());
-    }
-
-    @Test
-    public void dadoUnUsuarioYUnEntrenamientoNoCompatible_cuandoSeEjecutaSugerencia_entrenamientoNoEsSugerido() {
-        // Dado
-        Plataforma plataforma = new Plataforma();
-        Usuario usuario = new Usuario();
-        usuario.setPerfil(new TipoEntrenamiento(List.of("Yoga")));
-
-        Entrenamiento entrenamiento = new Entrenamiento(
-                "Spinning Pro", 2024, "Spinning", "español", List.of("español"));
-
-        plataforma.agregarUsuario(usuario);
-        plataforma.agregarEntrenamiento(entrenamiento);
-
-        // Cuando
-        plataforma.sugerencia();
-
-        // Entonces
-        assertThrows(RuntimeException.class, () -> usuario.realizarEntrenamientoSugerido());
-    }
 }
