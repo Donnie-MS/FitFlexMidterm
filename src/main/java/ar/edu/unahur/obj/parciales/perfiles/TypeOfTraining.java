@@ -2,6 +2,8 @@ package ar.edu.unahur.obj.parciales.perfiles;
 
 import java.util.Set;
 
+import ar.edu.unahur.obj.parciales.Training;
+
 public class TypeOfTraining implements TrainingProfile {
     private final Set<String> acceptedTypes;
 

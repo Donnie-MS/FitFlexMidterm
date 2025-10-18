@@ -2,6 +2,8 @@ package ar.edu.unahur.obj.parciales.perfiles;
 
 import java.util.List;
 
+import ar.edu.unahur.obj.parciales.Training;
+
 public class MixedProfile implements TrainingProfile {
     private final List<TrainingProfile> profiles;
 

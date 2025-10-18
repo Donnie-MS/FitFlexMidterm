@@ -1,4 +1,4 @@
-package ar.edu.unahur.obj.parciales.perfiles;
+package ar.edu.unahur.obj.parciales;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,7 @@ public class Training {
         this.languageOfTheInstructor = Objects.requireNonNull(languageOfTheInstructor);
     }
 
+    public String getName() {return name; }
     public Integer getYear() { return yearOfCreation; }
     public String getTypeOfTraining() { return typeOfTraining; }
     public String getInstructorLanguage() { return languageOfTheInstructor; }

@@ -1,7 +1,5 @@
 package ar.edu.unahur.obj.parciales;
 
-import ar.edu.unahur.obj.parciales.perfiles.Training;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,5 +20,8 @@ public class Platform {
                 }
             })
         );
+    }
+    public List<Training> getTrainings() {
+        return this.trainings;
     }
 }

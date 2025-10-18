@@ -1,6 +1,5 @@
 package ar.edu.unahur.obj.parciales;
 
-import ar.edu.unahur.obj.parciales.perfiles.Training;
 import ar.edu.unahur.obj.parciales.perfiles.TrainingProfile;
 import ar.edu.unahur.obj.parciales.perfiles.TypeOfTraining;
 
