@@ -1,18 +1,16 @@
 package ar.edu.unahur.obj.parciales.perfiles;
 
-import java.util.List;
+import java.util.Set;
 
-public class TypeOfTraining extends TrainingProfile{
-    private Training trainingType;
-    public TypeOfTraining(List<Training> suggestedTraining, Training trainingType) {
-        super(suggestedTraining);
-        this.trainingType = trainingType;
+public class TypeOfTraining implements TrainingProfile {
+    private final Set<String> acceptedTypes;
+
+    public TypeOfTraining(Set<String> acceptedTypes) {
+        this.acceptedTypes = Set.copyOf(acceptedTypes);
     }
 
-    //aceptar si  pirmero es sugerido y si quiere el ususario
-    public void addSuggestedTraining(Training aTraining) {
-        if (trainingType.equals(aTraining)) {
-            this.suggestedTraining.add(aTraining);
-        }
+    @Override
+    public boolean accepts(Training t) {
+        return acceptedTypes.contains(t.getTypeOfTraining());
     }
 }

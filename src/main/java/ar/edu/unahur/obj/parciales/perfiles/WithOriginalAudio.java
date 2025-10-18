@@ -1,16 +1,8 @@
 package ar.edu.unahur.obj.parciales.perfiles;
 
-import java.util.List;
-
-public class WithOriginalAudio extends TrainingProfile{
-    public WithOriginalAudio(List<Training> suggestedTraining) {
-        super(suggestedTraining);
-    }
-
+public class WithOriginalAudio implements TrainingProfile {
     @Override
-    public void addSuggestedTraining(Training aTraining) {
-        if(aTraining.hasTheOriginalAudio()) {
-            suggestedTraining.add(aTraining);
-        }
+    public boolean accepts(Training t) {
+        return t.narratedInOriginalLanguage();
     }
 }

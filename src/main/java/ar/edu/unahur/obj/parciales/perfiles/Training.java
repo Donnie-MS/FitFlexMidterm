@@ -2,28 +2,30 @@ package ar.edu.unahur.obj.parciales.perfiles;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Training {
-    private String name;
-    private Integer yearOfCreation;
-    private String typeOfTraining;
-    private String languageOfTheInstructor;
-    private List<String> availableAudios;
+    private final String name;
+    private final Integer yearOfCreation;
+    private final String typeOfTraining;
+    private final String languageOfTheInstructor;
+    private final List<String> availableAudios = new ArrayList<>();
 
-    public Training(String name, Integer yearCreation, String typeOfTraining, String languageOfTheInstructor) {
-        this.name = name;
-        this.yearOfCreation = yearOfCreation;
-        this.typeOfTraining = typeOfTraining;
-        this.languageOfTheInstructor = languageOfTheInstructor;
-        this.availableAudios = new ArrayList<>();
+    public Training(String name, Integer yearOfCreation, String typeOfTraining, String languageOfTheInstructor) {
+        this.name = Objects.requireNonNull(name);
+        this.yearOfCreation = Objects.requireNonNull(yearOfCreation);
+        this.typeOfTraining = Objects.requireNonNull(typeOfTraining);
+        this.languageOfTheInstructor = Objects.requireNonNull(languageOfTheInstructor);
     }
 
-    public Integer getYear() {
-        return this.yearOfCreation;
-    }
+    public Integer getYear() { return yearOfCreation; }
+    public String getTypeOfTraining() { return typeOfTraining; }
+    public String getInstructorLanguage() { return languageOfTheInstructor; }
+    public List<String> getAvailableAudios() { return List.copyOf(availableAudios); }
 
-    public Boolean hasTheOriginalAudio() {
-        return availableAudios.stream().anyMatch(audio -> audio == this.languageOfTheInstructor);
-    }
+    public void addAudio(String lang) { availableAudios.add(lang); }
 
+    public boolean narratedInOriginalLanguage() {
+        return availableAudios.stream().anyMatch(lang -> lang.equals(languageOfTheInstructor));
+    }
 }

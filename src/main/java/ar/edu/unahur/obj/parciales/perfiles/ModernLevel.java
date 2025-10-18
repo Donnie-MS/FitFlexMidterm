@@ -1,18 +1,13 @@
 package ar.edu.unahur.obj.parciales.perfiles;
 
-import java.util.List;
 
-public class ModernLevel extends TrainingProfile{
-    private Integer year;
-    public ModernLevel(List<Training> suggestedTraining, Integer year) {
-        super(suggestedTraining);
-        this.year = year;
-    }
+public class ModernLevel implements TrainingProfile {
+    private final int year;
+
+    public ModernLevel(int year) { this.year = year; }
 
     @Override
-    public void addSuggestedTraining(Training aTraining) {
-        if (aTraining.getYear() >= this.year ) {
-            this.suggestedTraining.add(aTraining);
-        }
+    public boolean accepts(Training t) {
+        return t.getYear() >= year;
     }
 }

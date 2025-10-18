@@ -1,28 +1,30 @@
 package ar.edu.unahur.obj.parciales;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ar.edu.unahur.obj.parciales.perfiles.Training;
 import ar.edu.unahur.obj.parciales.perfiles.TrainingProfile;
+import ar.edu.unahur.obj.parciales.perfiles.TypeOfTraining;
+
+import java.util.*;
 
 public class User {
-//asociado a un perfil
-    private String mail;
+    private final String mail;
     private TrainingProfile fitnessProfile;
-    private final List<Training> suggestedTraining;
+    private final List<Training> suggested = new ArrayList<>();
 
     public User(String mail, TrainingProfile fitnessProfile) {
-        this.mail = mail;
-        this.fitnessProfile = fitnessProfile;
-        this.suggestedTraining = new ArrayList<>();
+        this.mail = Objects.requireNonNull(mail);
+        this.fitnessProfile = (fitnessProfile != null) ? fitnessProfile
+                : new TypeOfTraining(Set.of("Caminar"));
     }
 
-    public void addSuggestedTraining(Training aTraining) {
+    public TrainingProfile getFitnessProfile() { return fitnessProfile; }
+    public void setFitnessProfile(TrainingProfile profile) { this.fitnessProfile = Objects.requireNonNull(profile); }
 
+    public boolean acceptsSuggestionFor(Training t) { return fitnessProfile.accepts(t); }
+
+    public void addSuggestedTraining(Training t) {
+        if (!suggested.contains(t)) suggested.add(t);
     }
 
-    public void removeSuggestedTraining(Training aTraining) {
-        
-    }
+    public List<Training> getSuggestedTrainings() { return List.copyOf(suggested); }
 }

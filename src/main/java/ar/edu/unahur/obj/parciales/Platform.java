@@ -1,43 +1,26 @@
 package ar.edu.unahur.obj.parciales;
 
+import ar.edu.unahur.obj.parciales.perfiles.Training;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unahur.obj.parciales.perfiles.Training;
-
 public class Platform {
-    private final List<User> users;
-    private final List<Training> trainings;
+    private final List<User> users = new ArrayList<>();
+    private final List<Training> trainings = new ArrayList<>();
 
-    public Platform() {
-        this.users = new ArrayList<>();
-        this.trainings = new ArrayList<>();
-    }
+    public void addTraining(Training t) { trainings.add(t); }
+    public void removeTraining(Training t) { trainings.remove(t); }
+    public void addUser(User u) { users.add(u); }
+    public void removeUser(User u) { users.remove(u); }
 
-    public Platform(List<User> users, List<Training> trainings) {
-        this.users = users;
-        this.trainings = trainings;
-    }
-
-    public void addTraining(Training aTraining) {
-        this.trainings.add(aTraining);
-    }
-    
-    public void addUser(User aUser) {
-        this.users.add(aUser);
-    }
-
-    public void removeTraining(Training aTraining) {
-        this.trainings.remove(aTraining);
-    }
-
-    public void removeUser(User aUser) {
-        this.users.remove(aUser);
+    public void performSuggestionProcess() {
+        users.forEach(user ->
+            trainings.forEach(training -> {
+                if (user.acceptsSuggestionFor(training)) {
+                    user.addSuggestedTraining(training);
+                }
+            })
+        );
     }
 }
-/*
- Además la plataforma debe tener la funcionalidad de realizar un proceso 
- de sugerencia que consiste en evaluar cada entrenamiento contra el perfil
-  fitness de cada usuario, y en el caso de que el usuario acepta la sugerencia
-   de entrenamiento debe sumarlo a la lista de entrenamientos sugeridos.
- */
